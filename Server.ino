@@ -843,6 +843,7 @@ const char html_page[] PROGMEM = R"rawliteral(
       font-weight: bold;
       margin-top: 30px;
       margin-bottom: 30px;
+      width: 180px
     }
 
     .parking-spot {
@@ -925,9 +926,9 @@ const char html_page[] PROGMEM = R"rawliteral(
       }
 
       .parking-spot {
-        width: 130px;
+        width: 140px;
         height: 70px;
-        font-size: clamp(1.2rem, 4vw, 2.2rem);
+        font-size: clamp(1rem, 4vw, 2rem);
         margin: 0;
       }
 
