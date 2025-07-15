@@ -136,7 +136,6 @@ const char html_page[] PROGMEM = R"rawliteral(
     justify-content: center;
     gap: 3px;
     width: fit-content;
-    border-bottom: 1px solid whitesmoke;
     }  
 
     .column {
@@ -283,10 +282,10 @@ const char html_page[] PROGMEM = R"rawliteral(
         content: "";
         position: absolute;
         top: 50%;
-        left: 0;
+        left: 62px;
         right: 0;
         height: 2px;
-        width: 688px;
+        width: 545px;
         background-image: repeating-linear-gradient(
             to right,
             yellow 0 10px,
@@ -600,7 +599,7 @@ const char html_page[] PROGMEM = R"rawliteral(
         left: 0;
         right: 0;
         height: 2px;
-        width: 688px;
+        width: 419px;
         background-image: repeating-linear-gradient(
           to right,
           yellow 0 10px,
@@ -892,7 +891,7 @@ const char html_page[] PROGMEM = R"rawliteral(
       text-align: center;
       margin-top: auto;
       margin-bottom: auto;
-      color: #00ffae;
+      color: white;
     }
 
 /* ------------------------- RESPONSIVE ------------------------- */
@@ -1262,9 +1261,9 @@ window.addEventListener('DOMContentLoaded', matchHeight);
 
 function resetMapPosition(floorNumber) {
   const floorResetPositions = {
-    1: { left: "-352.173px", top: "-3.76543px" },
-    2: { left: "15.2346px", top: "-267px" },
-    3: { left: "15.2346px", top: "-267px" },
+    1: { left: " -179.186px", top: "28.9755px" },
+    2: { left: "20.1729px", top: "-26.2593px" },
+    3: { left: "20.1729px", top: "-26.2593px" },
   };
 
   const activeMap = document.querySelector(`#floor-${floorNumber}`);
@@ -1443,7 +1442,7 @@ function updateParkingSummary(floorNumber) {
   parkingListContainer.innerHTML = ''; // Clear previous spots
 
   if (vacantSpots.length === 0) {
-    parkingTitle.textContent = 'No vacant spots available. Go to next floor!';
+    parkingTitle.textContent = 'No parking slots available on this floor!';
     return;
   }
 
@@ -1471,11 +1470,11 @@ window.addEventListener('load', () => {
 
   const initialMap = document.querySelector('.floor-map.active');
   if (initialMap) {
-    initialMap.style.left = "-352.173px";
-    initialMap.style.top = "-3.76543px";
+    initialMap.style.left = "-179.186px";
+    initialMap.style.top = "28.9755px";
     initialMap.style.cursor = "grab";
   }
-
+  
   updateFloorData(1);
 
   ws.onerror = function (error) {
@@ -1500,11 +1499,6 @@ window.addEventListener('resize', matchHeight);
       <div class="tab main-tab" onclick="goToSummary()">All</div>
     </div>
 
-    <!-- <div class="tabs summary-tab">
-      <div class="tab" onclick="goToSummary()">📊</div>
-
-    </div> -->
-
     <div class="map-container" id="map-container">
 
       <!-- First Floor -->
@@ -1513,20 +1507,6 @@ window.addEventListener('resize', matchHeight);
           
           <!-- Main Portion -->
           <div class="main-portion">
-            <div class="divider" style="width: 3px; height:auto; background-color: white"></div>
-            
-            <div class="column">
-              <div class="spot occupied" id="F1E1">F1-E1</div>
-              <div class="divider" style="height: 3px;"></div>
-              <div class="spot occupied" id="F1E2">F1-E2</div>
-              <div class="divider" style="height: 3px;"></div>
-              <div class="spot occupied" id="F1E3">F1-E3</div>
-              <div class="divider" style="height: 3px;"></div>
-              <div class="spot occupied" id="F1E4">F1-E4</div>
-              <div class="divider" style="height: 3px;"></div>
-              <div class="spot occupied" id="F1E5">F1-E5</div>
-              <div class="divider" style="height: 3px;"></div>
-            </div>
             
             <div class="pathway"></div>
             
@@ -1591,9 +1571,6 @@ window.addEventListener('resize', matchHeight);
 
           <!-- Additional Portion -->
           <div class="portion-F2">
-            <div class="column">
-              <div class="spot zone zoneF2-1"></div>
-            </div>
             <div class="path"></div>
             <div class="column">
               <div class="spot zone zoneF2-2"></div>
@@ -1660,32 +1637,7 @@ window.addEventListener('resize', matchHeight);
             </div>
             
             <div class="pathway"></div>
-            
-            <div class="column">
-              <div class="spot occupied" id="F2D4">F2-D4</div>
-              <div class="divider" style="height: 3px;"></div>
-              <div class="spot occupied" id="F2D3">F2-D3</div>
-              <div class="divider" style="height: 3px;"></div>
-              <div class="spot occupied" id="F2D2">F2-D2</div>
-              <div class="divider" style="height: 3px;"></div>
-              <div class="spot occupied" id="F2D1">F2-D1</div>
-              <div class="divider" style="height: 3px;"></div>
-            </div>      
-
-            <div class="divider" style="width: 3px; height:auto; background-color: white"></div>
-
-            <div class="column">
-              <div class="spot occupied" id="F2E4">F2-E4</div>
-              <div class="divider" style="height: 3px;"></div>
-              <div class="spot occupied" id="F2E3">F2-E3</div>
-              <div class="divider" style="height: 3px;"></div>
-              <div class="spot occupied" id="F2E2">F2-E2</div>
-              <div class="divider" style="height: 3px;"></div>
-              <div class="spot occupied" id="F2E1">F2-E1</div>
-              <div class="divider" style="height: 3px;"></div>
-            </div> 
-
-            <div class="pathway"></div>        
+               
           </div>
 
           <!-- Additional Portion -->
@@ -1698,9 +1650,6 @@ window.addEventListener('resize', matchHeight);
               <div class="spot zone zoneF2-2"></div>
             </div>
             <div class="path"></div>
-            <div class="column">
-              <div class="spot zone zoneF2-3"></div>
-            </div>
           </div>
 
           <!-- Main Path -->
@@ -1757,32 +1706,7 @@ window.addEventListener('resize', matchHeight);
   </div>
   
   <div class="pathway"></div>
-  
-  <div class="column">
-    <div class="spot occupied" id="F3D4">F3-D4</div>
-    <div class="divider" style="height: 3px;"></div>
-    <div class="spot occupied" id="F3D3">F3-D3</div>
-    <div class="divider" style="height: 3px;"></div>
-    <div class="spot occupied" id="F3D2">F3-D2</div>
-    <div class="divider" style="height: 3px;"></div>
-    <div class="spot occupied" id="F3D1">F3-D1</div>
-    <div class="divider" style="height: 3px;"></div>
-  </div>      
-
-  <div class="divider" style="width: 3px; height:auto; background-color: white"></div>
-
-  <div class="column">
-    <div class="spot occupied" id="F3E4">F3-E4</div>
-    <div class="divider" style="height: 3px;"></div>
-    <div class="spot occupied" id="F3E3">F3-E3</div>
-    <div class="divider" style="height: 3px;"></div>
-    <div class="spot occupied" id="F3E2">F3-E2</div>
-    <div class="divider" style="height: 3px;"></div>
-    <div class="spot occupied" id="F3E1">F3-E1</div>
-    <div class="divider" style="height: 3px;"></div>
-  </div> 
-
-  <div class="pathway"></div>        
+   
 </div>
 
 <!-- Additional Portion -->
@@ -1795,9 +1719,6 @@ window.addEventListener('resize', matchHeight);
     <div class="spot zone zoneF2-2"></div>
   </div>
   <div class="path"></div>
-  <div class="column">
-    <div class="spot zone zoneF2-3"></div>
-  </div>
 </div>
 
 <!-- Main Path -->
@@ -1907,10 +1828,10 @@ window.addEventListener('resize', matchHeight);
   </div>
 </div>
 
-<!-- <div id="loading-indicator" class="loading-overlay">
+<div id="loading-indicator" class="loading-overlay">
   <div class="loading-spinner"></div>
   <div>Loading, please wait...</div>
-</div>  -->
+</div> 
 
 </body>
 </html>
